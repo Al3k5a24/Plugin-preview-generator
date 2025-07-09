@@ -82,17 +82,6 @@ Current focus:
 
 ---
 
-## 🤝 Contributions
-
-If you want to collaborate on:
-- enhanced sandbox security,
-- multi-environment preview generation,
-- automatic video previews,
-
-please open an issue or submit a pull request.
-
----
-
 > **“See it before you buy it.”**  
 Enable customers to preview digital assets safely, reducing friction in digital marketplaces.
 
