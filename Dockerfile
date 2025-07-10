@@ -1,17 +1,15 @@
-FROM mcr.microsoft.com/playwright/python:v1.44.0-jammy
+FROM ubuntu:22.04
 
-# Install ffmpeg for GIF/Video generation
-RUN pip install playwright
-RUN playwright install
+# Instaliraj osnovne alate
+RUN apt-get update && apt-get install -y \
+    python3 python3-pip \
+    nodejs npm \
+    golang \
+    dotnet-sdk-6.0 \
+    curl git \
+    && apt-get clean
 
-# Create workspace
-WORKDIR /workspace
+# Node.js symlink (neki image-ovi imaju nodejs, ali ne i node)
+RUN ln -s /usr/bin/nodejs /usr/bin/node || true
 
-# Copy Playwright script
-COPY preview_generator.py .
-
-# Install Python dependencies if needed
-# RUN pip install -r requirements.txt
-
-# Entry point
-CMD ["python", "preview_generator.py"]
+WORKDIR /app
